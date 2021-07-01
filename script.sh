@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /data/Projects/expack-master/app
+cd /data/Projects/docker-cmd/application
 
 docker build -t getting-started .
 
