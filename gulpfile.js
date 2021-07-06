@@ -86,7 +86,7 @@ gulp.task('webserver', (done) => {
         "host" : 'localhost', // change this to '0.0.0.0' to allow remote access
         "port" : '8080',
         'directoryListing': true,
-        'open': 'src/html/index.html'
+        'open': 'src/index.html'
     };
     return gulp.src('.').pipe(webserver(options));
 });

@@ -19,3 +19,11 @@ When you run `npm run buildProd`, Javascript, HTML, and CSS files are all minifi
     
     npm start               // navigate to localhost:8080 for local dev
 
+
+## Docker stop all container 
+
+Clear the container at port 3000
+    
+    docker ps -a            // find PID at port 3000
+
+    docker kill PID

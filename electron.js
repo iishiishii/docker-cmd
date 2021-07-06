@@ -15,7 +15,7 @@ let mainWindow=null;
 var createWindow=function() {
     
     let opts= {width: 800, height: 500};
-    let fullURL='file://' + path.resolve(__dirname , '../html/index.html');
+    let fullURL='file://' + path.join(__dirname , './src/index.html');
     
     // This is the key here -- this script is run before the html file is loaded
     // and can include node-style requires even if the rest of the window
