@@ -1,19 +1,17 @@
-import path from 'path'
-import express from 'express'
-import { spawn } from 'child_process'
+const routes = require('express').Router();
+const { spawn } = require('child_process');
 
 
-const app = express(),
-            DIST_DIR = __dirname,
-            HTML_FILE = path.join(DIST_DIR, 'index.html')
-
-
-app.use(express.static(DIST_DIR))
+//GET home page.
+routes.get("/", function(req, res) {
+    res.render("index", { title: "Express" });
+  });
 
 // create a GET route
-app.get('/express_backend', (body, res, next) => {
-    res.sendFile(HTML_FILE)
-
+routes.get('/express_backend', (body, res) => {
+    res.render("log", { title: "Page 4" });
+    // res.sendFile(HTML_FILE)
+    console.log('start')
     var cmd = (process.platform === 'win32') ? '' : 'sh';
     var directory = (process.platform === 'win32') ? ['C:\data\Projects\docker-cmd\script.bat'] : ['/data/Projects/docker-cmd/script.sh'];      
     console.log('cmd:', cmd);
@@ -35,8 +33,4 @@ app.get('/express_backend', (body, res, next) => {
     res.send('Script is running');
 })
 
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-    console.log(`App listening to ${PORT}....`)
-    console.log('Press Ctrl+C to quit.')
-})
+module.exports = routes;

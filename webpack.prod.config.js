@@ -7,7 +7,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './index.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -68,7 +68,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './index.html',
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({
