@@ -38,10 +38,9 @@ var createWindow=function() {
      				 });
                  
     mainWindow.webContents.openDevTools();
-    mainWindow.loadURL(fullURL);
+    mainWindow.loadURL(`file://${__dirname}/index.html`);
     console.log('localhost loaded');
 
-    // mainWindow.webContents.openDevTools();
     // Register callbacks
     mainWindow.setAutoHideMenuBar(true);
     mainWindow.setMenuBarVisibility(false);

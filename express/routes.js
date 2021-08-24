@@ -4,11 +4,13 @@ const { spawn } = require('child_process');
 
 //GET home page.
 routes.get("/", function(req, res) {
+  console.log('req', req);
     res.render("index", { title: "Express" });
+    console.log('end');
   });
 
 // create a GET route
-routes.get('/express_backend', (body, res) => {
+routes.get('/express_backend', (req, res) => {
     res.render("log", { title: "Page 4" });
     // res.sendFile(HTML_FILE)
     console.log('start')

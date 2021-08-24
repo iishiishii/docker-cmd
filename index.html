@@ -13,6 +13,9 @@
         if (window.module) module = window.module;
     </script>
     <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./gui.js"></script>
+    <div id="serverLog"></div>
+    <iframe id="expressApp" class="expressApp" frameborder="0"></iframe>
 
     <script type="text/javascript">
             window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.min.js");
@@ -86,8 +89,8 @@
             });
         }
 
-        redirectOutput(node.stdout);
-        redirectOutput(node.stderr);
+        // redirectOutput(node.stdout);
+        // redirectOutput(node.stderr);
 
         let checkServerRunning = setInterval(() => {
             request(expressAppUrl, (error, response, body) => {
