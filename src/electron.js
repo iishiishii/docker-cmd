@@ -2,11 +2,8 @@
 
 // Require electron and node.js modules. Use ES6 style const declaration to store the
 // Module names as these will not change.
-// const electron = require('electron');
 const path=require('path');
-// require('./src/server/server-prod.js')
-// const app=electron.app;  // Module to control application life.
-// const  = electron.BrowserWindow;  // Module to create native browser window.
+
 const { BrowserWindow, app, shell, globalShortcut }	= require('electron'); // include the ipc module to communicate with render process ie to receive the message from render process
 const url = require('url');
 
@@ -18,7 +15,7 @@ let mainWindow=null;
 var createWindow=function() {
 
     let opts= {width: 800, height: 500};
-    let fullURL='file://' + path.join(__dirname , './index.html');
+   
     
     // This is the key here -- this script is run before the html file is loaded
     // and can include node-style requires even if the rest of the window
@@ -50,9 +47,7 @@ var createWindow=function() {
         mainWindow.webContents.send("stop-server");
       });
     mainWindow.on('closed', () => { mainWindow = null;});
-    
-    // Load the URL to start
-    // mainWindow.loadURL(fullURL);
+
 };
 
 // This is boilerplate from electron examples. 
@@ -81,29 +76,3 @@ app.on('activate', function () {
       createWindow()
     }
 });
-
- 
-//ipcMain.on will receive the “btnclick” info from renderprocess 
-// ipcMain.on("btnclick",function (event, arg) {
-//         //create new window
-//         var newWindow        = new BrowserWindow({ width: 450, height: 300, show: 
-//                                               false,webPreferences: {webSecurity: false,plugins:
-//                                               true,nodeIntegration: false} });  // create a new window
- 
-//         // var dockerURL     =  "http://localhost:8080/express_backend"; // loading an external url. We can
-//         //                                                     //load our own another html file , like how we load index.html earlier
- 
-//         const request = net.request(
-//             'https://alphamev.ai/'
-//         );
-//         request.on('response', (response) => {
-//             console.log(`STATUS: ${response.statusCode}`);
-//             response.on('error', (error) => {
-//               console.log(`ERROR: ${JSON.stringify(error)}`)
-//             })
-//           });
-//         newWindow.loadURL('https://alphamev.ai/');
-//         newWindow.show();
-
- 
-// });
