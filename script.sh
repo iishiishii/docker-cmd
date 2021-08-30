@@ -1,9 +1,7 @@
 #!/bin/bash
 
-cd /data/Projects/docker-cmd/application
+cd /data/Projects/docker-cmd/vnm
 
-docker build -t getting-started .
+sudo docker run --privileged --name vnm -v ~/vnm:/vnm -v /dev/shm:/dev/shm -e USER=neuro -p 6080:80 vnmd/vnm:20210708
 
-docker run -dp 3000:3000 getting-started
-
-firefox localhost:3000
+firefox http://localhost:6080

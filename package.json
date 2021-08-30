@@ -4,10 +4,6 @@
   "description": "Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.",
   "main": "./src/electron.js",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage",
-    "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
-    "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
     "start": "./node_modules/node/bin/node ./src/main.js",
     "webpack": "./node_modules/.bin/webpack-cli --config ./config/webpack.config.js"
   },
