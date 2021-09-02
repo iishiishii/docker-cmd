@@ -1,6 +1,5 @@
 import logMessage from './logger'
 import './style.css'
-import './gui.js'
 // Log message to console
 logMessage('Its finished!!')
 
