@@ -25,7 +25,6 @@ var createWindow=function() {
     // Create main window
     mainWindow=new BrowserWindow({width: opts.width,
      				  height: opts.height,
-     				  show: true,
      				  webPreferences: {
                         plugins: true,
                         nodeIntegration: true,
@@ -42,7 +41,7 @@ var createWindow=function() {
     mainWindow.setAutoHideMenuBar(true);
     mainWindow.setMenuBarVisibility(false);
 
-
+    
     mainWindow.on("close", () => {
         mainWindow.webContents.send("stop-server");
       });
@@ -67,6 +66,7 @@ app.whenReady().then(() => {
     globalShortcut.register("Alt+CommandOrControl+L", () => {
       mainWindow.webContents.send("show-server-log");
     })
+    // mainWindow.maximize();
   }).then(createWindow);
 
 app.on('activate', function () {
