@@ -4,12 +4,29 @@
   "description": "Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.",
   "main": "./src/electron.js",
   "scripts": {
-    "start": "./node_modules/node/bin/node ./src/main.js",
-    "webpack": "./node_modules/.bin/webpack-cli --config ./config/webpack.config.js"
+    "start": "electron .",
+    "webpack": "./node_modules/.bin/webpack-cli --config ./config/webpack.config.js",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --windows --linux",
+    "release": "electron-builder --mac --windows --linux --publish always"
   },
   "keywords": [],
+  "build": {
+    "appId": "com.yourcompany.yourapp",
+    "productName": "Neurodesk Electron App",
+    "mac": {
+      "category": "public.app-category.lifestyle"
+    },
+    "dmg": {
+      "icon": false
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "category": "Office"
+    }
+  },
   "author": "",
-  "license": "ISC",
+  "license": "CC0-1.0",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -18,7 +35,6 @@
     "node": "^15.4.0",
     "jquery": "^3.5.1",
     "request": "^2.88.2",
-    "electron": "13.1.2",
     "strip": "^3.0.0"
   },
   "engines": {
@@ -42,6 +58,7 @@
     "eslint": "^4.19.1",
     "eslint-loader": "^2.2.1",
     "event-stream": "3.3.4",
+    "electron": "13.1.2",
     "electron-builder": "^22.8.1",
     "gulp": "4.0.0",
     "gulp-concat-css": "3.1.0",

@@ -14,7 +14,7 @@ let mainWindow=null;
 // Function to create the application window
 var createWindow=function() {
 
-    let opts= {width: 800, height: 500};
+    let opts= {width: 900, height: 800};
    
     
     // This is the key here -- this script is run before the html file is loaded
@@ -65,6 +65,7 @@ app.on('window-all-closed', function() {
 app.whenReady().then(() => {
     globalShortcut.register("Alt+CommandOrControl+L", () => {
       mainWindow.webContents.send("show-server-log");
+
     })
     // mainWindow.maximize();
   }).then(createWindow);

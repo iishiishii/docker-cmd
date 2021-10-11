@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Run Dockerfile</title>
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-
-</head>
-<body>
-    <!-- Insert this line above script imports  -->
-    <script type="text/javascript">
-        if (typeof module === 'object') {window.module = module; module = undefined;}
-        if (window.module) module = window.module;
-    </script>
-    <script type="text/javascript" src="../build/web/jquery.min.js"></script>
-    <script type="text/css" src="../build/web/main.css"></script>
-    <div id="serverLog"></div>
-    <iframe width="560" height="500" id="expressApp" class="expressApp" frameborder="0" scrolling="yes"></iframe>
-
-    <script type="text/javascript">
-        window.$ = window.jQuery = require("../build/web/jquery.min.js");
+<!doctype html> <html lang=en> <head> <meta charset=utf-8> <title>Run Dockerfile</title> <link rel="shortcut icon" href=#> <link href="main.css" rel="stylesheet"></head> <body> <script>"object"==typeof module&&(window.module=module,module=void 0),window.module&&(module=window.module)</script> <script src=../build/web/jquery.min.js></script> <script type=text/css src=../build/web/main.css></script> <div id=serverLog></div> <iframe width=560 height=500 id=expressApp class=expressApp frameborder=0 scrolling=yes></iframe> <script> window.$ = window.jQuery = require("../build/web/jquery.min.js");
         const ipcRenderer = require('electron').ipcRenderer;
     
         expressAppUrl = "http://localhost:8080",
@@ -102,8 +81,4 @@
                 clearInterval(checkServerRunning);
             }
             });
-        }, 1000);
-    </script>
-</body>
-</html>
-
+        }, 1000); </script> <script type="text/javascript" src="index_bundle.js"></script></body> </html> 

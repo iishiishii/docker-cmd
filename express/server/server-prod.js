@@ -10,6 +10,7 @@ const app = express();
 
 //view engine setup
 app.set("views", path.join(__dirname, "../src"));
+// console.log(path.join(__dirname, "../src"));
 app.set("view engine", "ejs");
 
 app.use(cors());
@@ -17,8 +18,9 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/build/web', express.static(path.join(__dirname, '/../../build/web')));
+// console.log(path.join(__dirname, '/../../build/web'));
+// console.log(path.join(__dirname, "/../src"));
 app.use('/', routes);
 
 // catch 404 and forward to error handler

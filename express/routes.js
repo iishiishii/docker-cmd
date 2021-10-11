@@ -5,13 +5,13 @@ const { spawn } = require('child_process');
 //GET home page.
 routes.get("/", function(req, res) {
   console.log('req', req);
-    res.render("start", { title: "Start Docker Container" });
+    res.render("start", { title: "Start Docker Container", instruction: "Press button to start VNM container"});
     console.log('end');
   });
 
 // create a GET route
 routes.get('/start', (req, res) => {
-    res.render("stop", { title: "Stop Docker Container" });
+    res.render("stop", { title: "Stop Docker Container", instruction: "Press button to start VNM container"});
     // res.sendFile(HTML_FILE)
     console.log('stop')
     var cmd = (process.platform === 'win32') ? '' : 'sh';
@@ -36,7 +36,7 @@ routes.get('/start', (req, res) => {
 })
 
 routes.get('/stop', (req, res) => {
-  res.render("start", { title: "Start Docker Container" });
+  res.render("start", { title: "Start Docker Container", instruction: "Press button to stop VNM container"});
   // res.sendFile(HTML_FILE)
   console.log('stop')
   var cmd = (process.platform === 'win32') ? '' : 'sh';

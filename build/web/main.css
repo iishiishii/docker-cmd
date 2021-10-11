@@ -1,9 +1,10 @@
-h1, h2, h3, h4, h5, p, a {
+h1, h2, h3, h4, h5, p {
   font-family: helvetica;
   color: #3e3e3e;
+  margin: 20px 20px
 }
 
-html, body {
+body {
   overflow: hidden;
   margin: 0;
   padding: 0;
