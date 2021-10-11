@@ -1,9 +1,11 @@
 @ECHO OFF 
 
-cd /data/Projects/docker-cmd/application
+#!/bin/bash
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-docker build -t getting-started .
+cd "$parent_path/vnm"
 
-docker run -dp 3000:3000 getting-started
-
-http-server -p 3000
+(curl --silent --retry 30 --retry-delay 1 --retry-connrefused \
+       http://localhost:6080 ; \
+     firefox http://localhost:6080) &
+docker run --privileged --name vnm -v C:/vnm:/vnm -e USER=neuro -p 6080:80 vnmd/vnm:20210708
