@@ -21,7 +21,9 @@
       "icon": false
     },
     "linux": {
-      "target": ["AppImage"],
+      "target": [
+        "AppImage"
+      ],
       "category": "Office"
     }
   },
@@ -59,7 +61,7 @@
     "eslint-loader": "^2.2.1",
     "event-stream": "3.3.4",
     "electron": "13.1.2",
-    "electron-builder": "^22.8.1",
+    "electron-builder": "20.31.2",
     "gulp": "4.0.0",
     "gulp-concat-css": "3.1.0",
     "gulp-eslint": "5.0.0",
