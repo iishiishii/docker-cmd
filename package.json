@@ -7,7 +7,7 @@
     "start": "electron .",
     "webpack": "./node_modules/.bin/webpack-cli --config ./config/webpack.config.js",
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --mac --windows --linux",
+    "build": "electron-builder --linux --mac --win",
     "release": "electron-builder --mac --windows --linux --publish always"
   },
   "keywords": [],
