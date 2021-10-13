@@ -112,7 +112,7 @@ const options = {
     lintscripts : ['src/*.js','config/*.js','*.js' ],
     name : 'index',
     alljs : [ 'jquery.min.js', 'index_bundle.js'  ],
-    allcss : [ 'style.css' ],
+    allcss : [ 'main.css' ],
     webpackwatch : false,
     debug : true,
     webserver : {
@@ -146,7 +146,7 @@ gulp.task('clean', (done) => {
 gulp.task('commonfiles', (done) => {
     
     es.concat(
-        gulp.src([ 'src/style.css']).pipe(gulp.dest(options.outdir)),
+        gulp.src([ 'src/main.css']).pipe(gulp.dest(options.outdir)),
         gulp.src('./node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest(options.outdir)),
     ).on('end', () => {
         let outinfo = { };
@@ -258,7 +258,6 @@ gulp.task('eslint',  () => {
             }
         })).pipe(eslint.format());
 });
-
 
 // - - - - - - - - - - - - - - - - - - - - - - -
 // Watch JS code for changes and invoke ESLint
@@ -372,7 +371,7 @@ gulp.task('build', gulp.series('clean',gulp.parallel('commonfiles','mainhtml','w
 
 // - - - - - - - - - - - - - - - - - - - - - - -
 // Package task, creates webpage package
-// - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - -webackwatch
 gulp.task('webpage',gulp.series('build','zip'));
 
 // - - - - - - - - - - - - - - - - - - - - - - -

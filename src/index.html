@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <title>Run Dockerfile</title>
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-
 </head>
 <body>
     <!-- Insert this line above script imports  -->
     <script type="text/javascript">
         if (typeof module === 'object') {window.module = module; module = undefined;}
-        if (window.module) module = window.module;
     </script>
     <script type="text/javascript" src="../build/web/jquery.min.js"></script>
     <script type="text/css" src="../build/web/main.css"></script>
@@ -19,7 +16,7 @@
     <iframe width="560" height="500" id="expressApp" class="expressApp" frameborder="0" scrolling="yes"></iframe>
 
     <script type="text/javascript">
-        window.$ = window.jQuery = require("../build/web/jquery.min.js");
+        const $ = require("jquery");
         const ipcRenderer = require('electron').ipcRenderer;
     
         expressAppUrl = "http://localhost:8080",
@@ -28,7 +25,7 @@
         // uncomment the app require below
         //app = require('electron').remote.app,
         node = spawn(
-        "./node_modules/node/bin/node",
+        "node",
         ["./express/src/www"],
         {
             cwd: process.cwd()
@@ -104,6 +101,7 @@
             });
         }, 1000);
     </script>
+    <script>if (window.module) module = window.module;</script>
 </body>
 </html>
 

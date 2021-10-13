@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const { spawn } = require('child_process');
-
+const path=require('path');
 
 //GET home page.
 routes.get("/", function(req, res) {
@@ -11,12 +11,13 @@ routes.get("/", function(req, res) {
 
 // create a GET route
 routes.get('/start', (req, res) => {
-    res.render("stop", { title: "Stop Docker Container", instruction: "Press button to start VNM container"});
+    res.render("stop", { title: "Stop Docker Container", instruction: "Press button to stop VNM container"});
     // res.sendFile(HTML_FILE)
     console.log('stop')
     var cmd = (process.platform === 'win32') ? '' : 'sh';
-    var directory = (process.platform === 'win32') ? ['C:\data\Projects\docker-cmd\script.bat'] : ['/data/Projects/docker-cmd/script.sh'];      
+    var directory = (process.platform === 'win32') ? [path.join(__dirname, '/../start.bat')] : [path.join(__dirname, '/../start.sh')];
     console.log('cmd:', cmd);
+    console.log('dir', directory);
 
     let child = spawn(cmd, directory);
     
@@ -36,11 +37,11 @@ routes.get('/start', (req, res) => {
 })
 
 routes.get('/stop', (req, res) => {
-  res.render("start", { title: "Start Docker Container", instruction: "Press button to stop VNM container"});
+  res.render("start", { title: "Start Docker Container", instruction: "Press button to start VNM container"});
   // res.sendFile(HTML_FILE)
   console.log('stop')
   var cmd = (process.platform === 'win32') ? '' : 'sh';
-  var directory = (process.platform === 'win32') ? ['C:\data\Projects\docker-cmd\stop.bat'] : ['/data/Projects/docker-cmd/stop.sh'];      
+  var directory = (process.platform === 'win32') ? [path.join(__dirname, '/../stop.bat')] : [path.join(__dirname, '/../stop.sh')];      
   console.log('cmd:', cmd);
 
   let child = spawn(cmd, directory);
